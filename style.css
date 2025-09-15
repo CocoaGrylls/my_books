@@ -62,7 +62,7 @@ h1 {
 }
 
 .book-info h2 {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin: 0 0 6px 0;
   color: #222;
@@ -71,7 +71,7 @@ h1 {
 .book-detail {
   margin-top: 12px;
   color: #4285f4;
-  font-size: 1.05rem;
+  font-size: 1.8rem;
   font-weight: 500;
 }
 
@@ -137,7 +137,7 @@ h1 {
 .blue-header-desc {
   color: #cfe0ff;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   margin-top: 8px;
 }
 
