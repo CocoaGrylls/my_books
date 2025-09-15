@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>图书浏览</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 蓝色背景头部 -->
+  <div class="blue-header">
+    <span class="blue-header-title">亲子专栏</span>
+    <div class="blue-header-desc">点击下方图书卡片，查看详细信息</div>
+  </div>
+  
+  <div id="book-list" class="book-list"></div>
+
+  <script>
+    fetch('booklist.csv')
+      .then(response => response.text())
+      .then(csvText => {
+        Papa.parse(csvText, {
+          header: true,
+          complete: function(results) {
+            const books = results.data;
+            const bookList = document.getElementById("book-list");
+            bookList.innerHTML = "";
+            books.forEach(book => {
+              if (!book.name || !book.cover || !book.url) return;
+              const link = document.createElement("a");
+              link.className = "book-item";
+              link.href = book.url;
+              link.target = "_blank";
+              link.innerHTML = `
+                <div class="book-cover">
+                  <img src="${book.cover}" alt="${book.name}">
+                </div>
+                <div class="book-info">
+                  <h2>${book.name}</h2>
+                  <div class="book-detail">查看详情 <span style="font-size:1.2em;">➔</span></div>
+                </div>
+              `;
+              bookList.appendChild(link);
+            });
+          }
+        });
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <!-- 页面底部信息 -->
+  <footer style="text-align:center; padding:24px 0 12px 0; color:#888; font-size:14px;">
+    襄城县图书馆<br>
+    &copy; 2025
+  </footer>
+</body>
+</html>
