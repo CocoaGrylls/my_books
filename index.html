@@ -7,6 +7,9 @@
   <meta http-equiv="Expires" content="0">
   <title>图书浏览</title>
   <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 </head>
 <body>
   <!-- 蓝色背景头部 -->
@@ -17,6 +20,7 @@
   
   <div id="book-list" class="book-list"></div>
 
+ 
   <script>
     fetch('booklist.csv')
       .then(response => response.text())
@@ -48,7 +52,7 @@
         });
       });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  
   <!-- 页面底部信息 -->
   <footer style="text-align:center; padding:24px 0 12px 0; color:#888; font-size:20px;">
     襄城县图书馆<br>
